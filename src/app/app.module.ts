@@ -7,6 +7,7 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 import { MaprotationComponent } from './maprotation/maprotation.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,10 @@ import { FooterComponent } from './footer/footer.component';
     NavmenuComponent,
     MaprotationComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
