@@ -1,9 +1,27 @@
-<div class="min-h-min flex flex-col">
+<div class="flex flex-col">
   <div class="text-8xl mb-12 text-center">Map Rotations</div>
   <div class="mx-64 text-justify">
-    <div class="text-xl">Current Battle Royale Ranked Map</div>
-    <!-- <div class="text-base">{{ maps.battle_royale.current.map }}</div> -->
-    <div class="text-xl">Current Battle Royale Pubs Map</div>
-    <div class="text-xl">Current Mixed Playlist Map</div>
+    <div class="text-4xl">Current Battle Royale Ranked Map</div>
+    <div class="text-3xl text-center my-12 font-mono font-bold text-red-600">
+      {{ mapsData.ranked.current.map }}
+      <div class="flex justify-center my-6">
+        <img [src]="mapsData.ranked.current.asset" class="h-64" />
+      </div>
+    </div>
+    <div class="text-4xl">Current Battle Royale Pubs Map</div>
+    <div class="text-3xl text-center my-12 font-mono font-bold text-red-600">
+      {{ mapsData.battle_royale.current.map }}
+      <div class="flex justify-center my-6">
+        <img [src]="mapsData.battle_royale.current.asset" class="h-64" />
+      </div>
+    </div>
+    <div class="text-4xl">Current Mixed Playlist Map</div>
+    <div class="text-3xl text-center my-12 font-mono font-bold text-red-600">
+      {{ mapsData.ltm.current.eventName }}:
+      {{ mapsData.ltm.current.map }}
+      <div class="flex justify-center my-6">
+        <img [src]="mapsData.ltm.current.asset" class="h-64" />
+      </div>
+    </div>
   </div>
 </div>

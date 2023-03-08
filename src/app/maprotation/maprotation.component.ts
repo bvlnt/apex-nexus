@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { MapsService } from '../services/maps.service';
+import { MapsData } from './MapRotation';
 
 @Component({
   selector: 'app-maprotation',
@@ -7,18 +10,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./maprotation.component.scss'],
 })
 export class MaprotationComponent implements OnInit {
-  maps = [];
+  mapsData!: MapsData;
+  constructor(private mapsService: MapsService) {}
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.http
-      .get(
-        'https://api.mozambiquehe.re/maprotation?version=2&auth=fb01304305ade811cf5071e860f85c4a'
-      )
-      .subscribe((data: any) => {
-        this.maps = data;
-        console.log(this.maps);
-      });
+  ngOnInit(): void {
+    this.mapsService.getMapsData().subscribe((data) => {
+      this.mapsData = data;
+    });
   }
 }
