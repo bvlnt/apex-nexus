@@ -1,16 +1,19 @@
 <div class="flex flex-col">
   <div class="text-8xl mb-12 text-center">Map Rotations</div>
-  <div class="mx-64 text-justify">
+  <div class="mx-64 text-justify border-2 rounded-md mb-6">
     <div
-      class="text-4xl bg-gradient-to-r from-red-600 to-stone-500 rounded-lg h-16 flex items-center justify-center"
+      class="text-4xl bg-gradient-to-r from-red-600 rounded-t to-stone-500 h-16 flex items-center justify-center"
     >
       Ranked
     </div>
-    <div class="text-3xl text-center my-12 font-bold text-red-500">
+    <div class="text-3xl text-center my-6 font-bold text-red-500">
       {{ mapsData.ranked.current.map }}
       <p class="text-white text-2xl">
         {{ mapsData.ranked.current.remainingTimer }}
       </p>
+      <div class="text-white text-2xl font-light">
+        Next: {{ mapsData.ranked.next.map }}
+      </div>
       <div class="flex justify-center my-6">
         <img
           [src]="mapsData.ranked.current.asset"
@@ -18,14 +21,21 @@
         />
       </div>
     </div>
+  </div>
+  <div class="mx-64 text-justify border-2 rounded-md mb-6">
     <div
-      class="text-4xl bg-gradient-to-r from-red-600 to-stone-500 rounded-lg h-16 flex items-center justify-center"
+      class="text-4xl bg-gradient-to-r from-red-600 rounded-t to-stone-500 h-16 flex items-center justify-center"
     >
       Pubs
     </div>
-    <div class="text-3xl text-center my-12 font-bold text-red-500">
+    <div class="text-3xl text-center my-6 font-bold text-red-500">
       {{ mapsData.battle_royale.current.map }}
-      {{ mapsData.battle_royale.current.remainingTimer }}
+      <p class="text-white text-2xl">
+        {{ mapsData.battle_royale.current.remainingTimer }}
+      </p>
+      <div class="text-white text-2xl font-light">
+        Next: {{ mapsData.battle_royale.next.map }}
+      </div>
       <div class="flex justify-center my-6">
         <img
           [src]="mapsData.battle_royale.current.asset"
@@ -33,15 +43,22 @@
         />
       </div>
     </div>
+  </div>
+  <div class="mx-64 text-justify border-2 rounded-md mb-6">
     <div
-      class="text-4xl bg-gradient-to-r from-red-600 to-stone-500 rounded-lg h-16 flex items-center justify-center"
+      class="text-4xl bg-gradient-to-r from-red-600 rounded-t to-stone-500 h-16 flex items-center justify-center"
     >
       Mixed Playlist
     </div>
-    <div class="text-3xl text-center my-12 font-bold text-red-500">
-      {{ mapsData.ltm.current.eventName }}:
+    <div class="text-3xl text-center my-6 font-bold text-red-500">
+      {{ mapsData.ltm.current.eventName }} :
       {{ mapsData.ltm.current.map }}
-      {{ mapsData.ltm.current.remainingTimer }}
+      <p class="text-white text-2xl">
+        {{ mapsData.ltm.current.remainingTimer }}
+      </p>
+      <div class="text-white text-2xl font-light">
+        Next: {{ mapsData.ltm.next.eventName }} : {{ mapsData.ltm.next.map }}
+      </div>
       <div class="flex justify-center my-6">
         <img
           [src]="mapsData.ltm.current.asset"
