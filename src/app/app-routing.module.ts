@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'maprotation', component: MaprotationComponent },
   { path: 'playerstats', component: PlayerstatsComponent },
   { path: 'predators', component: PredatorsComponent },
-  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
