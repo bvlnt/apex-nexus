@@ -1,1 +1,37 @@
-<p>playerstats works!</p>
+<div class="items-center justify-center px-12">
+  <h1 class="text-9xl pb-6 text-red-500 text-center">🚧Work in progress🚧</h1>
+  <h2 class="text-5xl pb-16 text-red-500 text-center italic">
+    (You can display raw JSON)
+  </h2>
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+    <label for="playerName" class="text-3xl">Player Name</label>
+    <p class="py-6">
+      <input
+        type="text"
+        id="playerName"
+        formControlName="playerName"
+        class="text-black"
+      />
+    </p>
+    <label for="platform" class="text-3xl">Platform</label>
+    <p class="py-6">
+      <select id="platform" formControlName="platform" class="text-black">
+        <option value="">Select a platform</option>
+        <option value="PC">PC</option>
+        <option value="X1">Xbox</option>
+        <option value="PS4">PlayStation</option>
+      </select>
+    </p>
+    <button
+      type="submit"
+      [disabled]="playerForm.invalid"
+      class="pt-3 bg-indigo-500 rounded-lg text-white text-2xl p-2 hover:bg-indigo-600"
+    >
+      Submit
+    </button>
+  </form>
+  <div *ngIf="playerData">
+    <p>Player data:</p>
+    <pre>{{ playerData | json }}</pre>
+  </div>
+</div>
