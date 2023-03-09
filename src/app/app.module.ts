@@ -8,6 +8,7 @@ import { MaprotationComponent } from './maprotation/maprotation.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerstatsComponent } from './playerstats/playerstats.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaprotationComponent,
     HomeComponent,
     FooterComponent,
+    PlayerstatsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
