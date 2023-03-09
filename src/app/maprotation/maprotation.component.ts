@@ -14,8 +14,13 @@ export class MaprotationComponent implements OnInit {
   constructor(private mapsService: MapsService) {}
 
   ngOnInit(): void {
-    this.mapsService.getMapsData().subscribe((data) => {
+    this.mapsService.getMapsDataInterval().subscribe((data) => {
       this.mapsData = data;
     });
+  }
+
+  handleImageError(event: ErrorEvent) {
+    const target = event.target as HTMLImageElement;
+    target.style.display = 'none';
   }
 }
