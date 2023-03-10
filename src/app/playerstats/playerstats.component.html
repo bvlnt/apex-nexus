@@ -27,8 +27,10 @@
       Submit
     </button>
   </form>
+  <div *ngIf="playerData.global.name === 'zncpwnyou'">
+    <img src="assets/zncpwnyou.png" class="h-64" />
+  </div>
   <div *ngIf="playerData">
-    <p>Player data:</p>
     <p>Name: {{ playerData.global.name }}</p>
     <p>Level: {{ playerData.global.level }}</p>
     <p>
