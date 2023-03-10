@@ -15,6 +15,7 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { PredatorsComponent } from './predators/predators.component';
 import { StorerotationComponent } from './storerotation/storerotation.component';
+import { CraftrotationComponent } from './craftrotation/craftrotation.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCxiWP5u2M6oYBVKGwl9oeh6pCee6qX2FM',
@@ -39,6 +40,7 @@ const analytics = getAnalytics(app);
     PlayerstatsComponent,
     PredatorsComponent,
     StorerotationComponent,
+    CraftrotationComponent,
   ],
   imports: [
     BrowserModule,
