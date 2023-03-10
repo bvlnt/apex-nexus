@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { PredatorsComponent } from './predators/predators.component';
+import { StorerotationComponent } from './storerotation/storerotation.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCxiWP5u2M6oYBVKGwl9oeh6pCee6qX2FM',
@@ -37,6 +38,7 @@ const analytics = getAnalytics(app);
     FooterComponent,
     PlayerstatsComponent,
     PredatorsComponent,
+    StorerotationComponent,
   ],
   imports: [
     BrowserModule,
