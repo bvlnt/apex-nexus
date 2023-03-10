@@ -1,8 +1,5 @@
 <div class="items-center justify-center px-12">
   <h1 class="text-9xl pb-6 text-red-500 text-center">🚧Work in progress🚧</h1>
-  <h2 class="text-5xl pb-16 text-red-500 text-center italic">
-    (You can display raw JSON)
-  </h2>
   <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
     <label for="playerName" class="text-3xl">Player Name</label>
     <p class="py-6">
@@ -32,6 +29,29 @@
   </form>
   <div *ngIf="playerData">
     <p>Player data:</p>
+    <p>Name: {{ playerData.global.name }}</p>
+    <p>Level: {{ playerData.global.level }}</p>
+    <p>
+      Rank: {{ playerData.global.rank.rankName }}
+      {{ playerData.global.rank.rankDiv }}
+      <img [src]="playerData.global.rank.rankImg" />
+    </p>
+    <p>Selected Legend Statistics:</p>
+    <p>Legend: {{ playerData.legends.selected.LegendName }}</p>
+    <img [src]="playerData.legends.selected.ImgAssets.icon" class="h-64" />
+    <p>Trackers:</p>
+    <p>
+      {{ playerData.legends.selected.data[0].name }}:
+      {{ playerData.legends.selected.data[0].value }}
+    </p>
+    <p>
+      {{ playerData.legends.selected.data[1].name }}:
+      {{ playerData.legends.selected.data[1].value }}
+    </p>
+    <p>
+      {{ playerData.legends.selected.data[2].name }}:
+      {{ playerData.legends.selected.data[2].value }}
+    </p>
     <pre>{{ playerData | json }}</pre>
   </div>
 </div>
