@@ -1,18 +1,26 @@
 <div class="items-center justify-center px-12">
   <h1 class="text-9xl pb-6 text-red-500 text-center">🚧Work in progress🚧</h1>
-  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+  <form
+    [formGroup]="playerForm"
+    (ngSubmit)="onSubmit()"
+    class="items-center justify-center flex flex-col"
+  >
     <label for="playerName" class="text-3xl">Player Name</label>
     <p class="py-6">
       <input
         type="text"
         id="playerName"
         formControlName="playerName"
-        class="text-black"
+        class="text-black w-64 h-12"
       />
     </p>
     <label for="platform" class="text-3xl">Platform</label>
     <p class="py-6">
-      <select id="platform" formControlName="platform" class="text-black">
+      <select
+        id="platform"
+        formControlName="platform"
+        class="text-black w-64 h-12"
+      >
         <option value="">Select a platform</option>
         <option value="PC">PC</option>
         <option value="X1">Xbox</option>
@@ -22,38 +30,40 @@
     <button
       type="submit"
       [disabled]="playerForm.invalid"
-      class="pt-3 bg-indigo-500 rounded-lg text-white text-2xl p-2 hover:bg-indigo-600"
+      class="bg-indigo-500 rounded-lg text-white text-2xl p-3 hover:bg-indigo-600 mb-16"
     >
       Submit
     </button>
   </form>
-  <div *ngIf="playerData.global.name === 'zncpwnyou'">
-    <img src="assets/zncpwnyou.png" class="h-64" />
-  </div>
-  <div *ngIf="playerData">
-    <p>Name: {{ playerData.global.name }}</p>
-    <p>Level: {{ playerData.global.level }}</p>
-    <p>
-      Rank: {{ playerData.global.rank.rankName }}
-      {{ playerData.global.rank.rankDiv }}
-      <img [src]="playerData.global.rank.rankImg" />
-    </p>
-    <p>Selected Legend Statistics:</p>
-    <p>Legend: {{ playerData.legends.selected.LegendName }}</p>
-    <img [src]="playerData.legends.selected.ImgAssets.icon" class="h-64" />
-    <p>Trackers:</p>
-    <p>
-      {{ playerData.legends.selected.data[0].name }}:
-      {{ playerData.legends.selected.data[0].value }}
-    </p>
-    <p>
-      {{ playerData.legends.selected.data[1].name }}:
-      {{ playerData.legends.selected.data[1].value }}
-    </p>
-    <p>
-      {{ playerData.legends.selected.data[2].name }}:
-      {{ playerData.legends.selected.data[2].value }}
-    </p>
-    <pre>{{ playerData | json }}</pre>
+  <div class="flex flex-col items-center justify-center">
+    <div *ngIf="playerData.global.name === 'zncpwnyou'">
+      <img src="assets/zncpwnyou.png" class="h-64" />
+    </div>
+    <div *ngIf="playerData">
+      <p>Name: {{ playerData.global.name }}</p>
+      <p>Level: {{ playerData.global.level }}</p>
+      <div class="flex flex-row">
+        Rank: {{ playerData.global.rank.rankName }}
+        {{ playerData.global.rank.rankDiv }}
+        <img [src]="playerData.global.rank.rankImg" />
+      </div>
+      <p>Selected Legend Statistics:</p>
+      <p>Legend: {{ playerData.legends.selected.LegendName }}</p>
+      <img [src]="playerData.legends.selected.ImgAssets.icon" class="h-64" />
+      <p>Trackers:</p>
+      <p>
+        {{ playerData.legends.selected.data[0].name }}:
+        {{ playerData.legends.selected.data[0].value }}
+      </p>
+      <p>
+        {{ playerData.legends.selected.data[1].name }}:
+        {{ playerData.legends.selected.data[1].value }}
+      </p>
+      <p>
+        {{ playerData.legends.selected.data[2].name }}:
+        {{ playerData.legends.selected.data[2].value }}
+      </p>
+      <!-- <pre>{{ playerData | json }}</pre> -->
+    </div>
   </div>
 </div>
