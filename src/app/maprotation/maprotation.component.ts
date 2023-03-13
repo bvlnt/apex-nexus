@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MapsService } from '../services/maps.service';
@@ -9,14 +10,22 @@ import { MapsData } from './MapRotation';
   templateUrl: './maprotation.component.html',
   styleUrls: ['./maprotation.component.scss'],
 })
-export class MaprotationComponent implements OnInit {
+export class MaprotationComponent implements OnInit, OnDestroy {
   mapsData!: MapsData;
+  subscription!: Subscription;
+
   constructor(private mapsService: MapsService) {}
 
   ngOnInit(): void {
-    this.mapsService.getMapsDataInterval().subscribe((data) => {
-      this.mapsData = data;
-    });
+    this.subscription = this.mapsService
+      .getMapsDataInterval()
+      .subscribe((data) => {
+        this.mapsData = data;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   handleImageError(event: ErrorEvent) {
