@@ -9,8 +9,8 @@ import { StoreItem } from '../storerotation/Storeitem';
 export class StoreService {
   constructor(private http: HttpClient) {}
 
-  getStoreData(): Observable<StoreItem> {
-    return this.http.get<StoreItem>(
+  getStoreData(): Observable<StoreItem[]> {
+    return this.http.get<StoreItem[]>(
       'https://api.mozambiquehe.re/store?auth=fb01304305ade811cf5071e860f85c4a'
     );
   }

@@ -57,13 +57,16 @@
         >
       </div>
       <div *ngIf="playerData.global.name === 'zncpwnyou'">
-        <img src="assets/zncpwnyou.png" class="h-64" />
+        <img src="assets/zncpwnyou.png" class="h-64 mx-auto" />
       </div>
       <div *ngIf="playerData.global.name === 'lilpityke420'">
-        <img src="assets/lilpityke420.jpg" class="h-64" />
+        <img src="assets/lilpityke420.jpg" class="h-64 mx-auto" />
       </div>
       <div *ngIf="playerData.global.name === 'komlo'">
-        <img src="assets/komloka.png" class="h-64" />
+        <img src="assets/komloka.png" class="h-64 mx-auto" />
+      </div>
+      <div *ngIf="playerData.global.name === 'nerpi_'">
+        <img src="assets/gigachad.jpg" class="h-64 mx-auto" />
       </div>
     </div>
     <div class="text-4xl text-center">
@@ -72,7 +75,7 @@
         {{ playerData.global.rank.rankDiv }}
       </div>
       <div>{{ playerData.global.rank.rankScore }} RP</div>
-      <img [src]="playerData.global.rank.rankImg" class="mx-auto py-12" />
+      <img [src]="playerData.global.rank.rankImg" class="mx-auto py-6" />
     </div>
     <div class="text-4xl text-center">
       <div>Legend: {{ playerData.legends.selected.LegendName }}</div>

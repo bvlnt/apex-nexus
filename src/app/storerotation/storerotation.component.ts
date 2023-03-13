@@ -8,21 +8,13 @@ import { StoreItem } from './Storeitem';
   styleUrls: ['./storerotation.component.scss'],
 })
 export class StorerotationComponent implements OnInit {
-  storeData: StoreItem[] = [];
+  storeData!: StoreItem[];
   constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
-    //   this.storeService.getStoreData().subscribe((data: StoreItem[]) => {
-    //     this.storeData = data[0].content;
-    //     console.log(this.storeData);
-    //     this.storeData.forEach((innerItem) => {
-    //       // access each property inside the inner array
-    //       const ref = innerItem.ref;
-    //       const name = innerItem.name;
-    //       const quantity = innerItem.quantity;
-    //       // do something with these values
-    //     });
-    //   });
+    this.storeService.getStoreData().subscribe((data) => {
+      this.storeData = data;
+    });
   }
 
   handleImageError(event: ErrorEvent) {

@@ -1,3 +1,14 @@
+interface Pricing {
+  ref: string;
+  quantity: number;
+}
+
+interface Content {
+  ref: string;
+  name: string;
+  quantity: number;
+}
+
 export interface StoreItem {
   title: string;
   desc: string;
@@ -6,15 +17,8 @@ export interface StoreItem {
   isAvailable: boolean;
   expireTimestamp: number;
   shopType: string;
-  pricing: {
-    ref: string;
-    quantity: number;
-  }[];
-  content: {
-    ref: string;
-    name: string;
-    quantity: number;
-  }[];
+  pricing: Pricing[];
+  content: Content[];
   offerID: string;
   asset: string;
 }
