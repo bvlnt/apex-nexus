@@ -39,11 +39,23 @@
   </form>
   <div
     *ngIf="playerData.global.name"
-    class="grid grid-cols-3 gap-4 px-32 py-16 border-2"
+    class="grid grid-cols-3 gap-4 px-32 py-16 border-2 font-mono rounded-md bg-gradient-to-r from-red-900 to-black"
   >
     <div class="text-4xl">
-      <div>{{ playerData.global.name }}</div>
-      <div class="text-4xl">Level: {{ playerData.global.level }}</div>
+      <div class="text-6xl pb-12">{{ playerData.global.name }}</div>
+      <div>Level: {{ playerData.global.level }}</div>
+      <div>Level Prestige: {{ playerData.global.levelPrestige }}</div>
+      <div class="py-6">
+        Currently:
+        <b
+          [ngClass]="{
+            'text-green-500':
+              playerData.realtime.currentStateAsText === 'Online',
+            'text-red-500': playerData.realtime.currentStateAsText === 'Offline'
+          }"
+          >{{ playerData.realtime.currentStateAsText }}</b
+        >
+      </div>
       <div *ngIf="playerData.global.name === 'zncpwnyou'">
         <img src="assets/zncpwnyou.png" class="h-64" />
       </div>
@@ -54,19 +66,20 @@
         <img src="assets/komloka.png" class="h-64" />
       </div>
     </div>
-    <div class="text-4xl">
+    <div class="text-4xl text-center">
       <div>
         Rank: {{ playerData.global.rank.rankName }}
         {{ playerData.global.rank.rankDiv }}
       </div>
-      <img
-        [src]="playerData.global.rank.rankImg"
-        class="place-content-center"
-      />
+      <div>{{ playerData.global.rank.rankScore }} RP</div>
+      <img [src]="playerData.global.rank.rankImg" class="mx-auto py-12" />
     </div>
-    <div class="text-4xl">
+    <div class="text-4xl text-center">
       <div>Legend: {{ playerData.legends.selected.LegendName }}</div>
-      <img [src]="playerData.legends.selected.ImgAssets.icon" class="h-64" />
+      <img
+        [src]="playerData.legends.selected.ImgAssets.icon"
+        class="h-64 mx-auto py-6"
+      />
       <div *ngIf="playerData.legends.selected.data[0].name" class="text-3xl">
         <div>
           {{ playerData.legends.selected.data[0].name }}:
@@ -80,6 +93,9 @@
           {{ playerData.legends.selected.data[2].name }}:
           {{ playerData.legends.selected.data[2].value }}
         </div>
+      </div>
+      <div class="text-2xl pt-6">
+        <div>Skin: {{ playerData.legends.selected.gameInfo.skin }}</div>
       </div>
     </div>
   </div>
