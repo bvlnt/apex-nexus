@@ -65,7 +65,12 @@
       <div *ngIf="playerData.global.name === 'komlo'">
         <img src="assets/komloka.png" class="h-64 mx-auto border-2" />
       </div>
-      <div *ngIf="playerData.global.name === 'nerpi_'">
+      <div
+        *ngIf="
+          playerData.global.name === 'nerpi_' ||
+          playerData.global.name === 'bludhuntör'
+        "
+      >
         <img src="assets/gigachad.jpg" class="h-64 mx-auto border-2" />
       </div>
     </div>

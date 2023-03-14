@@ -15,6 +15,6 @@ export class PlayersService {
     const auth = 'fb01304305ade811cf5071e860f85c4a';
     const url = `${this.apiUrl}?auth=${auth}&player=${playerName}&platform=${platform}`;
 
-    return interval(1000).pipe(switchMap(() => this.http.get(url)));
+    return interval(10000).pipe(switchMap(() => this.http.get(url)));
   }
 }
